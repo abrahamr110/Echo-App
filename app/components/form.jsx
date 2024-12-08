@@ -1,7 +1,16 @@
+"use client";
+
+import { useState } from "react";
+import { ModalRegister } from "./modalRegister";
+import { ModalIniciarSesion } from "./modalIniciarSesion";
+
 export const Form = () => {
+    const [modalRegister, setModalRegister] = useState(false);
+    const [modalIniciarSesion, setModalIniciarSesion] = useState(false);
+
     return (
         <div className="flex flex-col items-center justify-center text-white">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <div className="bg-white p-6 rounded-3xl shadow-lg w-full max-w-md">
                 <h1 className="text-2xl font-bold text-center text-blue-900 mb-4">
                     Únete hoy
                 </h1>
@@ -24,7 +33,12 @@ export const Form = () => {
                     <hr className="border-gray-300" />
                 </div>
 
-                <button className="w-full bg-blue-500 text-white rounded-full py-2 font-bold hover:bg-blue-600">
+                <button
+                    className="w-full bg-blue-500 text-white rounded-full py-2 font-bold hover:bg-blue-600"
+                    onClick={() => {
+                        setModalRegister(true);
+                    }}
+                >
                     Crear cuenta
                 </button>
 
@@ -45,10 +59,31 @@ export const Form = () => {
                 <p className="text-center text-blue-900 font-semibold mb-2">
                     ¿Ya tienes una cuenta?
                 </p>
-                <button className="w-full border border-blue-500 text-blue-500 rounded-full py-2 hover:bg-blue-50">
+                <button
+                    className="w-full border border-blue-500 text-blue-500 rounded-full py-2 hover:bg-blue-50"
+                    onClick={() => {
+                        setModalIniciarSesion(true);
+                    }}
+                >
                     Iniciar sesión
                 </button>
             </div>
+
+            {modalRegister && (
+                <ModalRegister
+                    onClose={() => {
+                        setModalRegister(false);
+                    }}
+                />
+            )}
+
+            {modalIniciarSesion && (
+                <ModalIniciarSesion
+                    onClose={() => {
+                        setModalIniciarSesion(false);
+                    }}
+                />
+            )}
         </div>
     );
 };

@@ -15,7 +15,6 @@ export default function Login() {
                             height={1000}
                         />
                     </div>
-
                     <Form />
                 </div>
             </div>
