@@ -1,7 +1,16 @@
+import { IoMdClose } from "react-icons/io";
+
 export const ModalRegister = ({ onClose }) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-6 rounded-3xl shadow-lg w-full max-w-md">
+                <div>
+                    <IoMdClose
+                        color="blue"
+                        onClick={onClose}
+                        className="hover:cursor-pointer"
+                    />
+                </div>
                 <h1 className="text-2xl font-bold text-center text-blue-900 mb-6">
                     Crear cuenta
                 </h1>
