@@ -32,7 +32,7 @@ const perfiles = [
 
 export const RightBar = () => {
     return (
-        <div className="flex flex-col w-full h-full max-w-screen-md p-16">
+        <div className="flex flex-col p-4">
             <div className="flex flex-row bg-gray-100 gap-4 rounded-3xl px-4 py-2 mb-4 items-center">
                 <IoSearchOutline className="text-[#7A7C7F]" />
                 <p className="text-[#7A7C7F]">Buscar</p>

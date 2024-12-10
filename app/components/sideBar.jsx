@@ -25,8 +25,8 @@ const Links = [
 
 export const SideBar = () => {
     return (
-        <div className="flex flex-col w-full h-full max-w-screen-md p-16">
-            <div className="flex flex-col flex-wrap w-full h-full">
+        <div className="flex flex-col min-h-full p-4">
+            <div className="flex flex-col flex-grow">
                 {Links.map((link, index) => {
                     return (
                         <div
