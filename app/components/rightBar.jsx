@@ -33,11 +33,15 @@ const perfiles = [
 export const RightBar = () => {
     return (
         <div className="flex flex-col p-4">
-            <div className="flex flex-row bg-gray-100 gap-4 rounded-3xl px-4 py-2 mb-4 items-center">
+            <div className="flex flex-row bg-gray-100 gap-4 rounded-3xl px-4 py-2 items-center">
                 <IoSearchOutline className="text-[#7A7C7F]" />
-                <p className="text-[#7A7C7F]">Buscar</p>
+                <input
+                    className="text-[#7A7C7F] px-2 py-1 rounded-3xl border border-gray-300 w-full bg-transparent"
+                    placeholder="Buscar"
+                    type="text"
+                ></input>
             </div>
-            <div className="flex flex-col bg-gray-100 rounded-3xl px-4 py-2 mb-4">
+            <div className="flex flex-col bg-gray-100 rounded-3xl px-4 py-2">
                 <p className="text-black text-xl">Qué está pasando</p>
                 {tendencias.map((tendencia, index) => {
                     return (
