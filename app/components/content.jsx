@@ -60,26 +60,7 @@ export const Content = () => {
 
     return (
         <div className="flex flex-col w-full h-full p-4">
-            <p className="text-black text-2xl">Inicio</p>
-            <div className="flex flex-row mt-4 items-center">
-                <Image
-                    src={users[0]?.picture?.thumbnail}
-                    alt="Imagen"
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                />
-                <p className="text-[#7A7C7F] text-lg ml-2">
-                    ¿Qué está pasando?
-                </p>
-                <div className="ml-auto">
-                    <button className="text-blue-500 border border-blue-500 rounded-3xl text-sm bg-white px-4 py-2">
-                        Echo
-                    </button>
-                </div>
-            </div>
-
-            <div className="overflow-y-auto max-h-full mt-4 sm:max-h-full md:max-h-full">
+            <div className="overflow-y-auto max-h-fullsm:max-h-full md:max-h-full">
                 {tweets.map((tweet, index) => {
                     const user = users[index % users.length];
                     return (

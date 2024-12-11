@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { FaHome, FaHashtag, FaRegListAlt } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuMessageSquare } from "react-icons/lu";
@@ -24,6 +27,35 @@ const Links = [
 ];
 
 export const SideBar = () => {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const url = "https://randomuser.me/api/?results=20";
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                setUsers(data.results);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUsers();
+    }, []);
+
+    if (loading) {
+        return <p className="text-black text-lg">Cargando...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
+
     return (
         <div className="flex flex-col min-h-full p-4">
             <div className="flex flex-col flex-grow">
@@ -54,11 +86,16 @@ export const SideBar = () => {
                 </Link>
                 <div className="flex flex-col justify-center">
                     <p className="text-black text-lg">
-                        Abraham Rafael Castillo
+                        Abraham Rodriguez Martinez
                     </p>
-                    <p className="text-[#7A7C7F] text-sm">@abrahamcastillo</p>
+                    <p className="text-[#7A7C7F] text-sm">
+                        @abrahamrodriguez00
+                    </p>
                 </div>
-                <SiConvertio color="black" className="hover:cursor-pointer" />
+                <SiConvertio
+                    color="black"
+                    className="hover:cursor-pointer ml-auto"
+                />
             </div>
         </div>
     );
