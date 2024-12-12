@@ -11,45 +11,43 @@ export const Content = () => {
     const [error, setError] = useState(null);
 
     const router = useRouter();
+    const fetchNews = async () => {
+        const url =
+            "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
 
+        try {
+            setLoading(true);
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Failed to fetch news");
+            }
+            const data = await response.json();
+            const formattedTweets = data.articles.map((article, index) => ({
+                id: index, // Usamos el índice como ID único
+                image: article.urlToImage || "/default-image.jpg",
+                description: article.title || "Sin título",
+            }));
+            setTweets(formattedTweets);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchUsers = async () => {
+        const url = "https://randomuser.me/api/?results=20";
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            setUsers(data.results);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
     useEffect(() => {
-        const fetchNews = async () => {
-            const url =
-                "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
-
-            try {
-                setLoading(true);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error("Failed to fetch news");
-                }
-                const data = await response.json();
-                const formattedTweets = data.articles.map((article, index) => ({
-                    id: index, // Usamos el índice como ID único
-                    image: article.urlToImage || "/default-image.jpg",
-                    description: article.title || "Sin título",
-                }));
-                setTweets(formattedTweets);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        const fetchUsers = async () => {
-            const url = "https://randomuser.me/api/?results=20";
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                setUsers(data.results);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchNews();
         fetchUsers();
     }, []);

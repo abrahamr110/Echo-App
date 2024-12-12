@@ -30,20 +30,20 @@ export const SideBar = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const url = "https://randomuser.me/api/?results=20";
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                setUsers(data.results);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchUsers = async () => {
+        const url = "https://randomuser.me/api/?results=20";
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            setUsers(data.results);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchUsers();
     }, []);
 

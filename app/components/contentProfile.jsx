@@ -17,48 +17,47 @@ export const ContentProfile = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const fetchNews = async () => {
+        const url =
+            "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
+
+        try {
+            setLoading(true);
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Failed to fetch news");
+            }
+            const data = await response.json();
+
+            const formattedTweet = {
+                image: data.articles[0]?.urlToImage || "/default-image.jpg",
+                description: data.articles[0]?.title || "Sin título",
+            };
+            setTweet(formattedTweet);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchPerfil = async () => {
+        const url = "https://randomuser.me/api/?results=1"; // Solicitar solo un perfil
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const user = data.results[0];
+            setPerfil({
+                avatar: user.picture.thumbnail,
+                name: `${user.name.first} ${user.name.last}`,
+                username: user.login.username,
+            });
+        } catch (err) {
+            setError(err.message);
+        }
+    };
     useEffect(() => {
-        const fetchNews = async () => {
-            const url =
-                "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
-
-            try {
-                setLoading(true);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error("Failed to fetch news");
-                }
-                const data = await response.json();
-
-                const formattedTweet = {
-                    image: data.articles[0]?.urlToImage || "/default-image.jpg",
-                    description: data.articles[0]?.title || "Sin título",
-                };
-                setTweet(formattedTweet);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        const fetchPerfil = async () => {
-            const url = "https://randomuser.me/api/?results=1"; // Solicitar solo un perfil
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-
-                const user = data.results[0];
-                setPerfil({
-                    avatar: user.picture.thumbnail,
-                    name: `${user.name.first} ${user.name.last}`,
-                    username: user.login.username,
-                });
-            } catch (err) {
-                setError(err.message);
-            }
-        };
-
         fetchNews();
         fetchPerfil();
     }, []);

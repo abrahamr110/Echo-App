@@ -15,30 +15,31 @@ export const ContentSearch = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchTendencias = async () => {
-            const url =
-                "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
+    const fetchTendencias = async () => {
+        const url =
+            "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
 
-            try {
-                setLoading(true);
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error("No se pudieron cargar las tendencias");
-                }
-                const data = await response.json();
-                const formattedTendencias = data.articles.map((article) => ({
-                    title: article.title,
-                    date: article.publishedAt.split("T")[0],
-                    description: article.description,
-                }));
-                setTendencias(formattedTendencias);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
+        try {
+            setLoading(true);
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("No se pudieron cargar las tendencias");
             }
-        };
+            const data = await response.json();
+            const formattedTendencias = data.articles.map((article) => ({
+                title: article.title,
+                date: article.publishedAt.split("T")[0],
+                description: article.description,
+            }));
+            setTendencias(formattedTendencias);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchTendencias();
     }, []);
 
