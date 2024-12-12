@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaHome, FaHashtag, FaRegListAlt } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -22,7 +21,6 @@ const Links = [
     { name: "Mensajes", href: "/mensajes", icon: <LuMessageSquare /> },
     { name: "Guardados", href: "/guardados", icon: <MdSaveAlt /> },
     { name: "Listados", href: "/listados", icon: <FaRegListAlt /> },
-    { name: "Perfil", href: "/perfil", icon: <CgProfile /> },
     { name: "Más", href: "/mas", icon: <GoPlusCircle /> },
 ];
 
@@ -71,13 +69,15 @@ export const SideBar = () => {
                     );
                 })}
 
-                <button className="bg-blue-500 text-white justify-center p-2 rounded-3xl text-xl mt-8 text-">
-                    Echo
-                </button>
+                <Link href={"/error"}>
+                    <button className="bg-blue-500 text-white justify-center p-2 rounded-3xl text-xl mt-8 w-full">
+                        Echo
+                    </button>
+                </Link>
             </div>
             <div className="flex flex-row gap-4 items-center">
-                <Link href="/perfil">
-                    <Image
+                <Link href="/profile">
+                    <img
                         src="/avatar.png"
                         alt="Perfil"
                         width={40}
