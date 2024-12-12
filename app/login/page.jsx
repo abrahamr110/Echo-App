@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Footer } from "../components/footer";
 import { FormSign } from "../components/formSign";
 import Image from "next/image";
@@ -8,12 +9,15 @@ export default function Login() {
             <div className="flex-grow flex items-center justify-center">
                 <div className="flex flex-col md:flex-row items-center gap-4">
                     <div className="md:w-1/2 md:h-1/2">
-                        <Image
-                            src="/Echo.png"
-                            alt="Logo"
-                            width={1000}
-                            height={1000}
-                        />
+                        <Link href={"/"}>
+                            <Image
+                                src="/Echo.png"
+                                alt="Logo"
+                                width={1000}
+                                height={1000}
+                                className="cursor-pointer"
+                            />
+                        </Link>
                     </div>
                     <FormSign />
                 </div>

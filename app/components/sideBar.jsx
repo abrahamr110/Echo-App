@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { FaHome, FaHashtag, FaRegListAlt } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { LuMessageSquare } from "react-icons/lu";
-import { CgProfile } from "react-icons/cg";
+import { IoIosLogIn } from "react-icons/io";
 import { MdSaveAlt } from "react-icons/md";
 import { GoPlusCircle } from "react-icons/go";
 import { SiConvertio } from "react-icons/si";
@@ -22,6 +22,7 @@ const Links = [
     { name: "Guardados", href: "/guardados", icon: <MdSaveAlt /> },
     { name: "Listados", href: "/listados", icon: <FaRegListAlt /> },
     { name: "Más", href: "/mas", icon: <GoPlusCircle /> },
+    { name: "Login", href: "/login", icon: <IoIosLogIn /> },
 ];
 
 export const SideBar = () => {

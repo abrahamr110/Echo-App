@@ -69,7 +69,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
                 <Link href={"/search"}>
                     <div className="flex flex-row bg-gray-100 gap-4 rounded-3xl py-2 items-center">
                         <input
-                            className="text-[#7A7C7F] px-2 py-1 rounded-3xl border border-gray-300 w-full bg-transparent focus:border-blue-500"
+                            className="text-[#7A7C7F] px-2 py-1 rounded-3xl border border-gray-300 w-full bg-transparent focus:ring focus:ring-blue-500"
                             placeholder="Buscar"
                             type="text"
                         ></input>
