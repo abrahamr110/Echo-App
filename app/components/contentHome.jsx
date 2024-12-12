@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export const Content = () => {
@@ -8,6 +9,8 @@ export const Content = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const router = useRouter();
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -21,7 +24,8 @@ export const Content = () => {
                     throw new Error("Failed to fetch news");
                 }
                 const data = await response.json();
-                const formattedTweets = data.articles.map((article) => ({
+                const formattedTweets = data.articles.map((article, index) => ({
+                    id: index, // Usamos el índice como ID único
                     image: article.urlToImage || "/default-image.jpg",
                     description: article.title || "Sin título",
                 }));
@@ -66,7 +70,7 @@ export const Content = () => {
                     return (
                         <div key={index} className="flex flex-row mt-4 w-full">
                             <div>
-                                <Image
+                                <img
                                     src={
                                         user?.picture?.thumbnail ||
                                         "/default-image.jpg"
@@ -90,7 +94,7 @@ export const Content = () => {
                                     {tweet.description}
                                 </p>
                                 <div className="mt-1 w-full h-auto">
-                                    <Image
+                                    <img
                                         src={tweet.image}
                                         alt="Imagen"
                                         width={0}
@@ -99,7 +103,14 @@ export const Content = () => {
                                         className="w-full h-auto rounded-md"
                                     />
                                 </div>
-                                <button className="text-blue-500 max-w-fit text-sm mt-1">
+                                <button
+                                    className="text-blue-500 max-w-fit text-sm mt-1"
+                                    onClick={() => {
+                                        console.log("boo");
+                                        console.log(`/echo/${tweet.id}`); // Verifica si la ruta es correcta
+                                        router.push(`/echo/${tweet.id}`);
+                                    }}
+                                >
                                     Mostrar hilo
                                 </button>
                             </div>

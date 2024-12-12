@@ -104,6 +104,24 @@ const nextConfig = {
                 port: "",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "cdn.vox-cdn.com",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "dailygalaxy.com",
+                port: "",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "www.aljazeera.com",
+                port: "",
+                pathname: "/**",
+            },
         ],
     },
 };

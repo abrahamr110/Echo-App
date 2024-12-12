@@ -75,7 +75,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
             )}
 
             {showTendencias && (
-                <div className="flex flex-col bg-gray-100 rounded-3xl py-2 mt-4 overflow-y-auto max-h-96">
+                <div className="flex flex-col bg-gray-100 py-2 mb-4 overflow-y-auto max-h-96">
                     <p className="text-black text-xl">Qué está pasando</p>
                     {tendencias.map((tendencia, index) => (
                         <div
@@ -108,7 +108,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
                 </div>
             )}
 
-            <div className="flex flex-col bg-gray-100 rounded-3xl py-2 mb-4 overflow-y-auto max-h-96">
+            <div className="flex flex-col bg-gray-100 py-2 mb-4 overflow-y-auto max-h-96">
                 <p className="text-black text-xl">Quién seguir</p>
                 {perfiles.map((perfil, index) => (
                     <div
