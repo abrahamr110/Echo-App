@@ -12,8 +12,8 @@ const actions = [
 ];
 
 export const ContentProfile = () => {
-    const [tweet, setTweet] = useState(null); // Solo un tweet
-    const [perfil, setPerfil] = useState(null); // Solo un perfil
+    const [tweet, setTweet] = useState(null);
+    const [perfil, setPerfil] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -29,12 +29,12 @@ export const ContentProfile = () => {
                     throw new Error("Failed to fetch news");
                 }
                 const data = await response.json();
-                // Tomar solo el primer artículo
+
                 const formattedTweet = {
                     image: data.articles[0]?.urlToImage || "/default-image.jpg",
                     description: data.articles[0]?.title || "Sin título",
                 };
-                setTweet(formattedTweet); // Guardar solo el primer tweet
+                setTweet(formattedTweet);
             } catch (err) {
                 setError(err.message);
             } finally {

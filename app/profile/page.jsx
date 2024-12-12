@@ -14,7 +14,7 @@ export default function Profile() {
             </div>
 
             <div className="w-full lg:w-1/4 h-auto lg:h-screen bg-gray-100 rounded-lg shadow-md">
-                <RightBar />
+                <RightBar showSearchBar={true} showTendencias={true} />
             </div>
         </div>
     );

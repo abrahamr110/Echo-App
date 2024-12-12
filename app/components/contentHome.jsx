@@ -67,7 +67,10 @@ export const Content = () => {
                         <div key={index} className="flex flex-row mt-4 w-full">
                             <div>
                                 <Image
-                                    src={user?.picture?.thumbnail}
+                                    src={
+                                        user?.picture?.thumbnail ||
+                                        "/default-image.jpg"
+                                    }
                                     alt="Imagen"
                                     width={40}
                                     height={40}
