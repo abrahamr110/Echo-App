@@ -1,4 +1,5 @@
 import { FormContact } from "../components/formContact";
+import Link from "next/link";
 
 export default function Contact() {
     return (
@@ -8,12 +9,16 @@ export default function Contact() {
             </h1>
             <div className="flex flex-row justify-center">
                 <FormContact />
-                <img
-                    src="/Echo.png"
-                    className="w-2/4 max-w-full -mx-32"
-                    width={40}
-                    height={40}
-                />
+
+                <Link href="/" className="w-2/4 max-w-full -mx-32">
+                    <img
+                        src="/Echo.png"
+                        className="w-full"
+                        width={40}
+                        height={40}
+                        alt="Logo"
+                    />
+                </Link>
             </div>
         </div>
     );
