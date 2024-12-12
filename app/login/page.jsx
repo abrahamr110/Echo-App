@@ -1,5 +1,5 @@
 import { Footer } from "../components/footer";
-import { Form } from "../components/form";
+import { FormSign } from "../components/formSign";
 import Image from "next/image";
 
 export default function Login() {
@@ -15,7 +15,7 @@ export default function Login() {
                             height={1000}
                         />
                     </div>
-                    <Form />
+                    <FormSign />
                 </div>
             </div>
 

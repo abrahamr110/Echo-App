@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ModalRegister } from "./modalRegister";
 import { ModalIniciarSesion } from "./modalIniciarSesion";
 
-export const Form = () => {
+export const FormSign = () => {
     const [modalRegister, setModalRegister] = useState(false);
     const [modalIniciarSesion, setModalIniciarSesion] = useState(false);
 
