@@ -68,7 +68,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
         <div className="flex flex-col p-4">
             {showSearchBar && (
                 <Link href={"/search"}>
-                    <div className="flex flex-row bg-gray-100 gap-4 rounded-3xl py-2 items-center">
+                    <div className="flex flex-row  gap-4 rounded-3xl py-2 items-center">
                         <input
                             className="text-[#7A7C7F] px-2 py-1 rounded-3xl border border-gray-300 w-full bg-transparent focus:ring focus:ring-blue-500"
                             placeholder="Buscar"
@@ -79,7 +79,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
             )}
 
             {showTendencias && (
-                <div className="flex flex-col bg-gray-100 py-2 mb-4 overflow-y-auto max-h-96">
+                <div className="flex flex-col py-2 mb-4 overflow-y-auto max-h-96">
                     <p className="text-black text-xl">Qué está pasando</p>
                     {tendencias.map((tendencia, index) => (
                         <div
@@ -112,7 +112,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
                 </div>
             )}
 
-            <div className="flex flex-col bg-gray-100 py-2 mb-4 overflow-y-auto max-h-96">
+            <div className="flex flex-col  py-2 mb-4 overflow-y-auto max-h-96">
                 <p className="text-black text-xl">Quién seguir</p>
                 {perfiles.map((perfil, index) => (
                     <div

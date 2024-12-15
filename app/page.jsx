@@ -13,7 +13,7 @@ export default function Home() {
                 <Content />
             </div>
 
-            <div className="w-full lg:w-1/4 h-auto lg:h-screen bg-gray-100 rounded-lg shadow-md">
+            <div className="w-full lg:w-1/4 h-auto lg:h-screen rounded-lg shadow-md">
                 <RightBar showSearchBar={true} showTendencias={true} />
             </div>
         </div>

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 export const Content = () => {
     const [tweets, setTweets] = useState([]);
@@ -23,7 +22,7 @@ export const Content = () => {
             }
             const data = await response.json();
             const formattedTweets = data.articles.map((article, index) => ({
-                id: index, // Usamos el índice como ID único
+                id: index,
                 image: article.urlToImage || "/default-image.jpg",
                 description: article.title || "Sin título",
             }));
@@ -40,6 +39,7 @@ export const Content = () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
+            console.log("data ", data);
             setUsers(data.results);
         } catch (err) {
             setError(err.message);
@@ -101,14 +101,7 @@ export const Content = () => {
                                         className="w-full h-auto rounded-md"
                                     />
                                 </div>
-                                <button
-                                    className="text-blue-500 max-w-fit text-sm mt-1"
-                                    // onClick={() => {
-                                    //     console.log("boo");
-                                    //     console.log(`/echo/${tweet.id}`);
-                                    //     router.push(`/echo/${tweet.id}`);
-                                    // }}
-                                >
+                                <button className="text-blue-500 max-w-fit text-sm mt-1">
                                     Mostrar hilo
                                 </button>
                             </div>
