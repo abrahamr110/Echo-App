@@ -10,6 +10,14 @@ export const Content = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    if (loading) {
+        return <p className="text-black text-lg">Cargando noticias...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
+
     const router = useRouter();
     const fetchNews = async () => {
         const url =
@@ -51,14 +59,6 @@ export const Content = () => {
         fetchNews();
         fetchUsers();
     }, []);
-
-    if (loading) {
-        return <p className="text-black text-lg">Cargando noticias...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
 
     return (
         <div className="flex flex-col w-full h-full p-4">

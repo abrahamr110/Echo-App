@@ -30,6 +30,14 @@ export const SideBar = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    if (loading) {
+        return <p className="text-black text-lg">Cargando...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
+
     const fetchUsers = async () => {
         const url = "https://randomuser.me/api/?results=20";
         try {
@@ -46,14 +54,6 @@ export const SideBar = () => {
     useEffect(() => {
         fetchUsers();
     }, []);
-
-    if (loading) {
-        return <p className="text-black text-lg">Cargando...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
 
     return (
         <div className="flex flex-col min-h-full p-4">
