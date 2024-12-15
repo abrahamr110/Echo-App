@@ -117,7 +117,7 @@ export const ContentProfile = () => {
                 ))}
             </div>
 
-            <div className="flex flex-row mt-4 w-full">
+            <div className="flex flex-row mt-4 w-full overflow-y-auto">
                 <div>
                     <Image
                         src={perfil.avatar}

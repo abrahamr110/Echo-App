@@ -1,4 +1,7 @@
+"use client";
+
 import { IoMdClose } from "react-icons/io";
+import Link from "next/link";
 
 export const ModalIniciarSesion = ({ onClose }) => {
     return (
@@ -31,12 +34,14 @@ export const ModalIniciarSesion = ({ onClose }) => {
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-[#1976D2] text-white rounded-3xl py-2 font-bold hover:bg-blue-300 transition"
-                    >
-                        Iniciar sesión
-                    </button>
+                    <Link href="/">
+                        <button
+                            type="submit"
+                            className="w-full bg-[#1976D2] text-white rounded-3xl py-2 font-bold hover:bg-blue-300 transition"
+                        >
+                            Iniciar sesión
+                        </button>
+                    </Link>
                 </form>
             </div>
         </div>

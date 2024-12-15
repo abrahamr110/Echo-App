@@ -55,12 +55,14 @@ export const ModalRegister = ({ onClose }) => {
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-[#1976D2] text-white rounded-3xl py-2 font-bold hover:bg-blue-300 transition"
-                    >
-                        Registrarse
-                    </button>
+                    <Link href="/">
+                        <button
+                            type="submit"
+                            className="w-full bg-[#1976D2] text-white rounded-3xl py-2 font-bold hover:bg-blue-300 transition"
+                        >
+                            Registrarse
+                        </button>
+                    </Link>
                 </form>
             </div>
         </div>
