@@ -12,16 +12,16 @@ import { SiConvertio } from "react-icons/si";
 
 const Links = [
     { name: "Inicio", href: "/", icon: <FaHome /> },
-    { name: "Explorar", href: "/explorar", icon: <FaHashtag /> },
+    { name: "Explorar", href: "/error", icon: <FaHashtag /> },
     {
         name: "Notificaciones",
         href: "/notificaciones",
         icon: <IoNotificationsOutline />,
     },
-    { name: "Mensajes", href: "/mensajes", icon: <LuMessageSquare /> },
-    { name: "Guardados", href: "/guardados", icon: <MdSaveAlt /> },
-    { name: "Listados", href: "/listados", icon: <FaRegListAlt /> },
-    { name: "Más", href: "/mas", icon: <GoPlusCircle /> },
+    { name: "Mensajes", href: "/error", icon: <LuMessageSquare /> },
+    { name: "Guardados", href: "/error", icon: <MdSaveAlt /> },
+    { name: "Listados", href: "/error", icon: <FaRegListAlt /> },
+    { name: "Más", href: "/error", icon: <GoPlusCircle /> },
     { name: "Login", href: "/login", icon: <IoIosLogIn /> },
 ];
 
@@ -29,14 +29,6 @@ export const SideBar = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    if (loading) {
-        return <p className="text-black text-lg">Cargando...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
 
     const fetchUsers = async () => {
         const url = "https://randomuser.me/api/?results=20";
@@ -54,6 +46,14 @@ export const SideBar = () => {
     useEffect(() => {
         fetchUsers();
     }, []);
+
+    if (loading) {
+        return <p className="text-black text-lg">Cargando...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
 
     return (
         <div className="flex flex-col min-h-full p-4">

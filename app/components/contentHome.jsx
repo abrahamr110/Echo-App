@@ -10,14 +10,6 @@ export const Content = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    if (loading) {
-        return <p className="text-black text-lg">Cargando noticias...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
-
     const router = useRouter();
     const fetchNews = async () => {
         const url =
@@ -60,9 +52,17 @@ export const Content = () => {
         fetchUsers();
     }, []);
 
+    if (loading) {
+        return <p className="text-black text-lg">Cargando noticias...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
+
     return (
         <div className="flex flex-col w-full h-full p-4">
-            <div className="overflow-y-auto max-h-fullsm:max-h-full md:max-h-full">
+            <div className="overflow-y-auto max-h-full sm:max-h-full md:max-h-full">
                 {tweets.map((tweet, index) => {
                     const user = users[index % users.length];
                     return (
@@ -103,11 +103,11 @@ export const Content = () => {
                                 </div>
                                 <button
                                     className="text-blue-500 max-w-fit text-sm mt-1"
-                                    onClick={() => {
-                                        console.log("boo");
-                                        console.log(`/echo/${tweet.id}`); // Verifica si la ruta es correcta
-                                        router.push(`/echo/${tweet.id}`);
-                                    }}
+                                    // onClick={() => {
+                                    //     console.log("boo");
+                                    //     console.log(`/echo/${tweet.id}`);
+                                    //     router.push(`/echo/${tweet.id}`);
+                                    // }}
                                 >
                                     Mostrar hilo
                                 </button>

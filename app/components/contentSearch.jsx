@@ -15,14 +15,6 @@ export const ContentSearch = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    if (loading) {
-        return <p className="text-black text-lg">Cargando...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
-
     const fetchTendencias = async () => {
         const url =
             "https://newsapi.org/v2/top-headlines?country=us&apiKey=5d395fdbe5b84012a0140755a9a8b96e";
@@ -51,6 +43,13 @@ export const ContentSearch = () => {
         fetchTendencias();
     }, []);
 
+    if (loading) {
+        return <p className="text-black text-lg">Cargando...</p>;
+    }
+
+    if (error) {
+        return <p className="text-red-500 text-lg">Error: {error}</p>;
+    }
     return (
         <div className="flex flex-col h-full w-full p-4">
             <div className="flex flex-row  gap-4 rounded-3xl py-2 items-center">
