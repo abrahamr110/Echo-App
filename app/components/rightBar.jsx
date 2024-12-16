@@ -79,7 +79,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
             )}
 
             {showTendencias && (
-                <div className="flex flex-col py-2 mb-4 overflow-y-auto max-h-96">
+                <div className="flex flex-col py-2 mb-6 overflow-y-auto max-h-96">
                     <p className="text-black text-xl">Qué está pasando</p>
                     {tendencias.map((tendencia, index) => (
                         <div
@@ -112,7 +112,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
                 </div>
             )}
 
-            <div className="flex flex-col  py-2 mb-4 overflow-y-auto max-h-96">
+            <div className="flex flex-col py-2 mb-4 overflow-y-auto max-h-40">
                 <p className="text-black text-xl">Quién seguir</p>
                 {perfiles.map((perfil, index) => (
                     <div
@@ -144,7 +144,7 @@ export const RightBar = ({ showTendencias = true, showSearchBar = true }) => {
                 ))}
             </div>
 
-            <p className="text-[#7A7C7F] text-sm">
+            <p className="text-[#7A7C7F] text-sm flex-grow">
                 Términos de servicio Política de privacidad Política de cookies.
                 Información de anuncios Más © 2021 Twitter, Inc.
             </p>

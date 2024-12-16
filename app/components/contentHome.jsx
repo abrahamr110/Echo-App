@@ -47,6 +47,7 @@ export const Content = () => {
             setLoading(false);
         }
     };
+
     useEffect(() => {
         fetchNews();
         fetchUsers();
