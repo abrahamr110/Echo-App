@@ -26,35 +26,6 @@ const Links = [
 ];
 
 export const SideBar = () => {
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    const fetchUsers = async () => {
-        const url = "https://randomuser.me/api/?results=20";
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            setUsers(data.results);
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
-    if (loading) {
-        return <p className="text-black text-lg">Cargando...</p>;
-    }
-
-    if (error) {
-        return <p className="text-red-500 text-lg">Error: {error}</p>;
-    }
-
     return (
         <div className="flex flex-col min-h-full p-4">
             <div className="flex flex-col flex-grow">
